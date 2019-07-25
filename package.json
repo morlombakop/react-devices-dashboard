@@ -4,7 +4,7 @@
 	"description": "IOT devices dashboard react sample app",
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/morlombakop"
+		"url": "git://github.com/morlombakop/react-devices-dashboard.git"
 	},
 	"engines": {
 		"npm": ">=5",
