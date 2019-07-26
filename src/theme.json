@@ -1,4 +1,8 @@
 {
   "colorPrimary": "#000000",
-  "textColor": "#ffffff"
+  "colorPrimaryLight": "#1D1D1D",
+  "textColor": "#ffffff",
+  "colorAccent": "#FF6200",
+  "colorGrey": "#ddd",
+  "inputBorderColor": "#555"
 }

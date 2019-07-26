@@ -14,7 +14,7 @@
 	"scripts": {
 		"start": "npm run start:api | npm run start:app",
 		"start:app": "webpack-dev-server --mode development --open",
-		"start:api": "node api-server.js"
+		"start:api": "node server/api-server.js"
 	},
 	"browserslist": [
 		"last 2 versions",
@@ -28,6 +28,7 @@
 		"prop-types": "^15.7.2",
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
+		"react-icons": "^3.7.0",
 		"react-intl": "^2.9.0",
 		"regenerator-runtime": "^0.13.3",
 		"sanitize.css": "^11.0.0",

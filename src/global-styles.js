@@ -17,7 +17,33 @@ const GlobalStyle = createGlobalStyle`
     background-color: #000000;
     min-height: 100%;
     min-width: 100%;
-    color: #ffffff;
+    color: #fff;
+  }
+
+  .container {
+    text-align: center;
+    clear: both;
+  }
+
+  .bg-light {
+    background-color: #1D1D1D;
+  }
+
+  ::placeholder {
+    color: #ddd;
+    opacity: 1;
+  }
+
+  :-ms-input-placeholder {
+   color: #ddd;
+  }
+
+  input[type="text"]::-ms-input-placeholder {
+   color: #ddd;
+  }
+
+  .inactive {
+    opacity: 0.5;
   }
 `;
 

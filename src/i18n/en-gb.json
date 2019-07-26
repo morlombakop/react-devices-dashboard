@@ -1,3 +1,11 @@
 {
-  "deviceDashboard.header.title": "Device Dashboard"
+  "deviceDashboard.header.title": "Devices Dashboard",
+  "deviceDashboard.input.search": "Search...",
+  "deviceDashboard.label.name": "name",
+  "deviceDashboard.label.unit": "unit",
+  "deviceDashboard.label.value": "value",
+  "deviceDashboard.label.timestamp": "timestamp",
+  "deviceDashboard.label.status": "status",
+  "deviceDashboard.label.status-active": "active",
+  "deviceDashboard.label.status-inactive": "inactive"
 }

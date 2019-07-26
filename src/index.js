@@ -1,3 +1,4 @@
+// es5 polyfill
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
@@ -9,7 +10,7 @@ import 'sanitize.css/sanitize.css';
 
 import translationMessages from './i18n/en-gb.json';
 import theme from './theme.json';
-import App from './App';
+import App from './components/app';
 
 const rootElement = document.getElementById('root');
 
@@ -26,7 +27,7 @@ const render = messages => {
 
 if (module.hot) {
   // Hot reload React components and translation json files
-  module.hot.accept(['./i18n/en-gb.json', './App'], () => {
+  module.hot.accept(['./i18n/en-gb.json', './components/app'], () => {
     ReactDOM.unmountComponentAtNode(rootElement);
     render(translationMessages);
   });
@@ -39,7 +40,7 @@ if (!window.Intl) {
   })
     .then(() =>
       Promise.all([import('intl/locale-data/jsonp/en.js'), import('intl/locale-data/jsonp/de.js')]),
-    ) // eslint-disable-line prettier/prettier
+    )
     .then(() => render(translationMessages))
     .catch(err => {
       throw err;
