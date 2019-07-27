@@ -1,3 +1,5 @@
+const uuidv4 = require('uuid/v4');
+
 const deviceReadings = [
   {
     name: 'acceleration_x',
@@ -76,6 +78,6 @@ const deviceReadings = [
     timestamp: new Date().getTime() - Math.floor(Math.random() * 100000),
     active: true,
   },
-];
+].map(device => ({ ...device, id: uuidv4() }));
 
 module.exports = deviceReadings;

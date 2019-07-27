@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
-
+import { shape, string, arrayOf, bool, number, func } from 'prop-types';
 import CheckBox from './CheckBox';
 
 const Container = styled.div`
@@ -14,23 +14,23 @@ const Container = styled.div`
     font-size: 1.1em;
     float: right;
     padding-left: 10px;
+    padding-bottom: 15px;
     span {
       padding-left: 5px;
       font-weight: 500;
-      text-transform: capitalize;
       color: ${props => props.theme.colorAccent};
     }
   }
   table {
-    padding-top: 15px;
     width: 100%;
     th,
     td {
       border-bottom: 1px solid ${props => props.theme.inputBorderColor};
-      padding: 10px 10px 7px 0;
+      padding: 10px 10px 7px 10px;
       text-align: left;
       vertical-align: center;
     }
+    thead,
     tr:hover {
       background-color: ${props => props.theme.colorPrimary};
     }
@@ -42,23 +42,36 @@ const Container = styled.div`
   }
 `;
 
-const DevicesList = () => {
-  const renderCounter = () => (
-    <div>
-      <span>
-        100
-        <FormattedMessage id="deviceDashboard.label.status-active" defaultMessage="active" />
-      </span>
-      <span className="inactive">
-        200
-        <FormattedMessage id="deviceDashboard.label.status-inactive" defaultMessage="inactive" />
-      </span>
-    </div>
-  );
+const DevicesList = ({ devices, onToggleStatus }) => {
+  const renderCounter = () => {
+    const activesCount = devices.filter(device => device.active).length;
+    return (
+      <div>
+        <span>
+          {activesCount}
+          <span>
+            <FormattedMessage id="deviceDashboard.label.status-active" defaultMessage="Active" />
+            (s)
+          </span>
+        </span>
+        <span className="inactive">
+          {devices.length - activesCount}
+          <span>
+            <FormattedMessage
+              id="deviceDashboard.label.status-inactive"
+              defaultMessage="Inactive"
+            />
+            (s)
+          </span>
+        </span>
+      </div>
+    );
+  };
 
   const renderHeader = () => (
     <thead>
       <tr>
+        <th>#</th>
         <th>
           <FormattedMessage id="deviceDashboard.label.name" defaultMessage="name" />
         </th>
@@ -80,29 +93,18 @@ const DevicesList = () => {
 
   const renderBody = () => (
     <tbody>
-      <tr>
-        <td>Jill</td>
-        <td>Smith</td>
-        <td>50</td>
-        <td>Jackson</td>
-        <td>
-          <CheckBox />
-        </td>
-      </tr>
-      <tr>
-        <td>Eve</td>
-        <td>Jackson</td>
-        <td>94</td>
-        <td>Jackson</td>
-        <td>94</td>
-      </tr>
-      <tr>
-        <td>Foo</td>
-        <td>Bar</td>
-        <td>87</td>
-        <td>Bar</td>
-        <td>87</td>
-      </tr>
+      {devices.map((device, index) => (
+        <tr key={device.id}>
+          <td>{index + 1}</td>
+          <td>{device.name}</td>
+          <td>{device.unit}</td>
+          <td>{device.value}</td>
+          <td>{device.timestamp}</td>
+          <td>
+            <CheckBox name={device.id} isChecked={device.active} onCheck={onToggleStatus} />
+          </td>
+        </tr>
+      ))}
     </tbody>
   );
 
@@ -117,6 +119,20 @@ const DevicesList = () => {
       </Container>
     </div>
   );
+};
+
+DevicesList.propTypes = {
+  devices: arrayOf(
+    shape({
+      id: string.isRequired,
+      name: string.isRequired,
+      unit: string.isRequired,
+      value: number.isRequired,
+      timestamp: number.isRequired,
+      active: bool.isRequired,
+    }),
+  ).isRequired,
+  onToggleStatus: func.isRequired,
 };
 
 export default DevicesList;

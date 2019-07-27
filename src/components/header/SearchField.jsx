@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
+import { func, string } from 'prop-types';
+import { injectIntl, intlShape } from 'react-intl';
 
 const Container = styled.div`
   border-radius: 5px;
@@ -24,12 +26,32 @@ const Container = styled.div`
   }
 `;
 
-// Inject intl here please.
-const SearchField = () => (
-  <Container>
-    <FaSearch />
-    <input type="text" placeholder="Search..." />
-  </Container>
-);
+const SearchField = ({ onChange, intl, name }) => {
+  const [value, setValue] = useState('');
 
-export default SearchField;
+  const handleOnChange = ({ target }) => {
+    onChange(target.value.trim());
+    setValue(target.value);
+  };
+
+  return (
+    <Container>
+      <FaSearch />
+      <input
+        type="text"
+        name={name}
+        value={value}
+        onChange={handleOnChange}
+        placeholder={intl.formatMessage({ id: 'deviceDashboard.input.search' })}
+      />
+    </Container>
+  );
+};
+
+SearchField.propTypes = {
+  onChange: func.isRequired,
+  name: string.isRequired,
+  intl: intlShape.isRequired,
+};
+
+export default injectIntl(SearchField);
