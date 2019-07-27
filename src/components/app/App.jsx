@@ -9,10 +9,12 @@ import request from '../../services/request';
 import GlobalStyles from '../../global-styles';
 import Header from '../header';
 import DevicesList from '../devices-list';
+import Loader from '../loader';
 
 const App = ({ intl }) => {
   const [devicesReading, setDevicesReading] = useState([]);
   const [pristineData, setPristineData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const sortDevices = devices => devices.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -29,6 +31,7 @@ const App = ({ intl }) => {
     const deviceToUpdate = devicesReading.find(device => device.id === id);
 
     if (deviceToUpdate) {
+      setIsLoading(true);
       deviceToUpdate.active = !deviceToUpdate.active;
       const { name, active } = deviceToUpdate;
 
@@ -42,10 +45,13 @@ const App = ({ intl }) => {
           toast.success(
             intl.formatMessage({ id: 'deviceDashboard.message.device-status-updated' }),
           );
+
+          setIsLoading(false);
         })
-        .catch(() =>
-          toast.error(intl.formatMessage({ id: 'deviceDashboard.message.device-status-failed' })),
-        );
+        .catch(() => {
+          setIsLoading(false);
+          toast.error(intl.formatMessage({ id: 'deviceDashboard.message.device-status-failed' }));
+        });
     }
   };
 
@@ -67,7 +73,11 @@ const App = ({ intl }) => {
   return (
     <Fragment>
       <Header search={handleSearch} />
-      <DevicesList devices={devicesReading} onToggleStatus={setDeviceStatus} />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <DevicesList devices={devicesReading} onToggleStatus={setDeviceStatus} />
+      )}
       <ToastContainer />
       <GlobalStyles />
     </Fragment>
