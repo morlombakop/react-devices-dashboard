@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
-import { func, string } from 'prop-types';
+import { func, string, bool } from 'prop-types';
 import { injectIntl, intlShape } from 'react-intl';
 
 const Container = styled.div`
@@ -26,7 +26,7 @@ const Container = styled.div`
   }
 `;
 
-const SearchField = ({ onChange, intl, name }) => {
+const SearchField = ({ onChange, intl, name, isDisabled }) => {
   const [value, setValue] = useState('');
 
   const handleOnChange = ({ target }) => {
@@ -35,13 +35,14 @@ const SearchField = ({ onChange, intl, name }) => {
   };
 
   return (
-    <Container>
+    <Container data-testid="search-field-container">
       <FaSearch />
       <input
         type="text"
         name={name}
         value={value}
         onChange={handleOnChange}
+        disabled={isDisabled}
         placeholder={intl.formatMessage({ id: 'deviceDashboard.input.search' })}
       />
     </Container>
@@ -52,6 +53,7 @@ SearchField.propTypes = {
   onChange: func.isRequired,
   name: string.isRequired,
   intl: intlShape.isRequired,
+  isDisabled: bool.isRequired,
 };
 
 export default injectIntl(SearchField);

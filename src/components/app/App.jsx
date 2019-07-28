@@ -72,7 +72,7 @@ const App = ({ intl }) => {
 
   return (
     <Fragment>
-      <Header search={handleSearch} />
+      <Header search={handleSearch} isLoading={isLoading} />
       {isLoading ? (
         <Loader />
       ) : (

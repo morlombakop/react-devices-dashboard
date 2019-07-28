@@ -8,6 +8,7 @@
   "deviceDashboard.label.status": "status",
   "deviceDashboard.label.status-active": "Active",
   "deviceDashboard.label.status-inactive": "Inactive",
+  "deviceDashboard.label.no-results":"No results ...",
   "deviceDashboard.message.device-status-updated":"Device status updated",
   "deviceDashboard.message.device-status-failed":"Failed to patch device status, please try again !"
 }

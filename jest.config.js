@@ -6,6 +6,7 @@ module.exports = {
     '!src/theme.json',
     '!src/global-styles.js',
     '!src/i18n*',
+    '!src/config/api-endpoint.js',
   ],
   coverageThreshold: {
     global: {
@@ -17,6 +18,6 @@ module.exports = {
   },
   moduleDirectories: ['node_modules', 'src'],
   setupFiles: ['raf/polyfill'],
-  testRegex: 'tests/.*\\.test\\.js$',
+  testRegex: '__tests__/.*\\.test\\.(js|jsx)',
   snapshotSerializers: [],
 };

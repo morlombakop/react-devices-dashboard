@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
-import { func } from 'prop-types';
+import { func, bool } from 'prop-types';
 import debounce from 'lodash.debounce';
 import SearchField from './SearchField';
 
@@ -26,6 +26,7 @@ const searchFieldName = 'search';
 export default class Header extends Component {
   static propTypes = {
     search: func.isRequired,
+    isLoading: bool.isRequired,
   };
 
   // This component does not required to be updated
@@ -49,7 +50,7 @@ export default class Header extends Component {
 
   render() {
     return (
-      <div className="container bg-light">
+      <div className="container bg-light" data-testid="header-component">
         <Container>
           <h2>
             <FormattedMessage
@@ -58,7 +59,11 @@ export default class Header extends Component {
             />
           </h2>
           <form onSubmit={this.handleOnSubmit}>
-            <SearchField onChange={this.handleOnSearch} name={searchFieldName} />
+            <SearchField
+              onChange={this.handleOnSearch}
+              name={searchFieldName}
+              isDisabled={this.props.isLoading}
+            />
           </form>
         </Container>
       </div>

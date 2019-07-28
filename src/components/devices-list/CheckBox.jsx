@@ -31,7 +31,7 @@ export default class CheckBox extends Component {
     const { name, isChecked } = this.props;
 
     return (
-      <Container htmlFor="name">
+      <Container htmlFor="name" data-testid="checkbox-container">
         <input name={name} type="checkbox" checked={isChecked} onChange={this.handleOnchange} />
         {isChecked ? (
           <FormattedMessage id="deviceDashboard.label.status-active" />

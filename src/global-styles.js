@@ -27,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .bg-light {
-    background-color: #1D1D1D;
+    background-color: #1d1d1d;
   }
 
   ::placeholder {

@@ -109,14 +109,20 @@ const DevicesList = ({ devices, onToggleStatus }) => {
   );
 
   return (
-    <div className="container">
-      <Container>
-        {renderCounter()}
-        <table>
-          {renderHeader()}
-          {renderBody()}
-        </table>
-      </Container>
+    <div className="container" data-testid="devices-list-container">
+      {devices.length ? (
+        <Container>
+          {renderCounter()}
+          <table>
+            {renderHeader()}
+            {renderBody()}
+          </table>
+        </Container>
+      ) : (
+        <h1>
+          <FormattedMessage id="deviceDashboard.label.no-results" defaultMessage="No results ..." />
+        </h1>
+      )}
     </div>
   );
 };
