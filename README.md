@@ -17,7 +17,3 @@ This app is build:
 4. run `npm run start` to start the app. View the app on `localhost:8080`
 5. run `npm run test` to execute the unit tests.
 6. Ensure port  8080 is free and run `npm run test:e2e` to the execute the e2e test. Then, go in the cypress directory in this project folder to view videos and screenshots of the app.
-
-## Notes
-
-This repository shows 1 contributor, that contributor is also the author. Just working from a Windows and a Mac to ensure code works on both OS.
