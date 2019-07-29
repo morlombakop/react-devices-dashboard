@@ -17,3 +17,7 @@ This app is build:
 4. run `npm run start` to start the app. View the app on `localhost:8080`
 5. run `npm run test` to execute the unit tests.
 6. run `npm run cy:run` to the execute the UI Automated test if the app is already visible in the browser. Or run `npm run test:e2e` is the app is not visible. Then, go in the cypress directory in this project folder to view videos and screenshots of the app.
+
+## Notes
+
+This repository shows 1 contributor, that contributor is also the author. Just working from a Windows and a Mac to ensure code works on both OS.
