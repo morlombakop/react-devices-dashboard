@@ -1,40 +1,23 @@
-<img src="https://assets.relayr.io/images/relayr/relayr_logo_transparent.png" alt="relayr-logo" width="300"/>
+# Devices Reading Dashboard
 
-# Relayr Frontend Challenge
+This app is build:
 
-## Our Expectations
+- React + ReactDOM
+- Javascript (with eslint setting)
+- Prettier + eslint-config-prettier
+- File bundling and dev server with [webpack](https://github.com/webpack/webpack)
+- Unit Test using Jest and [react-testing-library](https://github.com/kentcdodds/react-testing-library)
+- UI automated test or e2e test with [cypress](https://www.cypress.io/)
 
+## Quick start
 
-This code challenge is based on the actual work we do here at Relayr. It's designed to see how you design and code a simple app based on real-world requirements.
-
-There's no time limit here, though we'd like to receive your solution within a week if possible. We expect a basic solution to take a couple of hours, but you're welcome to work on it longer if you'd like. 
-
-You're welcome to add some CSS styling, but there's no need to make the app very beautiful. We're mostly interested in how you implement the app's basic functionality.
-
-## Acceptance Criteria
-
-You are building a React-based frontend interface for displaying data from and interacting with an IoT device. Once you're finished with the basic app, a user should be able to do the following:
-
-* **Retrieve the device's state** from the backend.
-* **Show each of the device's readings**: name, unit, value, timestamp, and active status.
-* **Show a counter** showing how many readings are active and how many are inactive.
-* **Implement a search input** that filters visible readings by name.
-* A user should also be able to **toggle the active status of each reading** by making the proper requests to the backend. After successfully changing the status on the backend, the UI should display the updated state of the active counter.
- 
-Please the `API_DOCS.MD` file for information on the API endpoints available.
-
-## Extra Credit
-
-Finishing the above acceptance criteria is enough to submit the challenge, and we don't expect you to do any more. That said, you are welcome to implement anything further that you'd like and we'll keep it in mind. Again, extra work is not required at all: a good basic solution will be graded higher than an OK solution with more features. 
-
-## Getting started
-
-To run the server locally: ```npm run start```
-
-## Prerequisites
-
-To install dependencies: ```npm install```
+1. Ensure you have node version 8.15.1 and above as well as npm version 5.0.0 and above installed
+2. From your terminal navigate to `react-devices-dashboard` directory
+3. run `npm i` to install project dependencies.
+4. run `npm run start` to start the app. View the app on `localhost:8080`
+5. run `npm run test` to execute the unit tests.
+6. Ensure port  8080 is free and run `npm run test:e2e` to the execute the e2e test. Then, go in the cypress directory in this project folder to view videos and screenshots of the app.
 
 ## Notes
-* We've set up a basic webpack configuration to serve files. Your code should hot reload, as should any styles you put in the `styles.css` file.
-* PLEASE append your name to the project folder. E.g. device-dashboard-Edsger-W-Dijkstra
+
+This repository shows 1 contributor, that contributor is also the author. Just working from a Windows and a Mac to ensure code works on both OS.
