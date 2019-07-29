@@ -32,11 +32,11 @@ const App = ({ intl }) => {
 
     if (deviceToUpdate) {
       setIsLoading(true);
-      deviceToUpdate.active = !deviceToUpdate.active;
       const { name, active } = deviceToUpdate;
 
       request(`${apiEndpoint.devices}/${name}?active=${active}`, { method: 'PATCH' })
         .then(() => {
+          deviceToUpdate.active = !deviceToUpdate.active;
           const updatedDevices = [
             ...devicesReading.filter(device => device.id !== id),
             deviceToUpdate,

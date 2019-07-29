@@ -15,7 +15,8 @@
 		"start": "npm run start:api | npm run start:app",
 		"start:app": "webpack-dev-server --mode development --open",
 		"start:api": "node server/api-server.js",
-		"test": "jest --no-cache"
+		"test": "jest",
+		"test:coverage": "jest --no-cache --coverage"
 	},
 	"browserslist": [
 		"last 2 versions",
@@ -45,6 +46,7 @@
 		"@babel/plugin-transform-modules-commonjs": "^7.5.0",
 		"@babel/plugin-transform-react-constant-elements": "^7.5.0",
 		"@babel/plugin-transform-react-inline-elements": "^7.2.0",
+		"@babel/plugin-transform-runtime": "^7.5.5",
 		"@babel/preset-env": "^7.5.5",
 		"@babel/preset-react": "^7.0.0",
 		"@babel/register": "^7.5.5",
@@ -58,6 +60,7 @@
 		"babel-plugin-transform-react-remove-prop-types": "^0.4.24",
 		"circular-dependency-plugin": "^5.0.2",
 		"css-loader": "^3.1.0",
+		"cypress": "^3.4.0",
 		"eslint": "^6.1.0",
 		"eslint-config-airbnb": "^17.1.1",
 		"eslint-config-airbnb-base": "^13.2.0",

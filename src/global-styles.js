@@ -1,4 +1,3 @@
-import 'react-toastify/dist/ReactToastify.min.css';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`

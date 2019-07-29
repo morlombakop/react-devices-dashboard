@@ -7,6 +7,7 @@ import ReactDOM from 'react-dom';
 import { IntlProvider } from 'react-intl';
 import { ThemeProvider } from 'styled-components';
 import 'sanitize.css/sanitize.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 import translationMessages from './i18n/en-gb.json';
 import theme from './theme.json';

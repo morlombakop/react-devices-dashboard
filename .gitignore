@@ -11,3 +11,9 @@ yarn-error.log
 .DS_Store
 npm-debug.log
 .idea
+
+#Cypress
+cypress/plugins/
+cypress/support/
+cypress/screenshots/
+cypress/videos/
